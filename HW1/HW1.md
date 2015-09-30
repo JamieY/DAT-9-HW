@@ -21,8 +21,8 @@ There are 4623 lines in the file
 d. Which burrito is more popular, steak or chicken?
 Chicken burrito is more popular as more orders contained at least one chicken burrito (553) vs. steak burrito (368)
 
-	$ grep -c 'Steak Burrito' chipotle.tsv --> returned 368
-	$ grep -c 'Chicken Burrito' chipotle.tsv --> returned 553
+	$ grep -c 'Steak Burrito' chipotle.tsv 
+	$ grep -c 'Chicken Burrito' chipotle.tsv 
 
 e. Do chicken burritos more often have black beans or pinto beans?
 Chicken burritos more often have black beans than pinto beans.  In the instances of chicken burritos ordered, 282 had black beans and 105 had pinto beans.  
