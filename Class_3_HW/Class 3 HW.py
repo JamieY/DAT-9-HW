@@ -8,21 +8,21 @@ Created on Wed Sep 30 20:07:11 2015
 # Part 1 - Reading in tsv file
 import csv
 with open("chipotle.tsv") as tsvfile:
-    data = []
+    file_nested_list = []
     for line in csv.reader(tsvfile, delimiter = "\t"):
-        data.append(line)
+        file_nested_list.append(line)
         print(line)
         
 # Part 2 - Separate header and data into two different lists
-headerlist = data[0]
+headerlist = file_nested_list[0]
 print headerlist
-datalist = data[1:]
+datalist = file_nested_list[1:]
 print datalist
 
 # Part 3 - Calculate the average price of an order
 total = 0
 num_order=[]
-for row in data[1:]:
+for row in file_nested_list[1:]:
     rowprice = float(row[4][1:])
     total += rowprice
     num_order.append(row[0]) 
@@ -33,11 +33,11 @@ print avgprice
 # Part 4 - Create a list (or set) of all unique sodas and soft drinks that they sell.
 # Note: Just look for 'Canned Soda' and 'Canned Soft Drink', and ignore other drinks like 'Izze'.
 
-soda = set([row[3] for row in data[1:] if 'Canned' in row[2]])
+soda = set([row[3] for row in file_nested_list[1:] if 'Canned' in row[2]])
 print soda
 
 # Part 5 - Calculate the average number of toppings per burrito.
-toppings=[row[3] for row in data[1:] if 'Burrito' in row[2]]
+toppings=[row[3] for row in file_nested_list[1:] if 'Burrito' in row[2]]
 num_burritos = len(toppings)
 
 total_toppings = 0
@@ -52,7 +52,7 @@ print avgtoppings
 # Note: Please take the 'quantity' column into account
 
 chip_dict = {}
-chip_orders = [row[1:3] for row in data[1:] if 'Chips' in row[2]]
+chip_orders = [row[1:3] for row in file_nested_list[1:] if 'Chips' in row[2]]
 print chip_orders[:5]
 for row in chip_orders:
     if row[1] in chip_dict:
